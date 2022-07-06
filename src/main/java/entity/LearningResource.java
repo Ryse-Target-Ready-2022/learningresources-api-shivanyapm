@@ -2,7 +2,7 @@ package entity;
 
 import java.time.LocalDate;
 
-public class LearningResources {
+public class LearningResource {
     private Integer id;
     private String name;
     private Double cost_price;
@@ -12,11 +12,11 @@ public class LearningResources {
     private LocalDate published_date;
     private LocalDate retired_date;
 
-    public LearningResources(){
+    public LearningResource(){
 
     }
 
-    public LearningResources(Integer id, String name, Double cost_price, Double selling_price, LearningResourcesStatus learningResourcesStatus, LocalDate created_date, LocalDate published_date, LocalDate retired_date) {
+    public LearningResource(Integer id, String name, Double cost_price, Double selling_price, LearningResourcesStatus learningResourcesStatus, LocalDate created_date, LocalDate published_date, LocalDate retired_date) {
         this.id = id;
         this.name = name;
         this.cost_price = cost_price;
