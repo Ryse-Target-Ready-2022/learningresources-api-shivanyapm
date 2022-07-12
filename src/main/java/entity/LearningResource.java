@@ -1,93 +1,128 @@
 package entity;
 
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class LearningResource {
-    private Integer id;
-    private String name;
-    private Double cost_price;
-    private Double selling_price;
+@Entity
+@Table(name = "learningresources")
+public class LearningResource implements Serializable {
+    @Id
+    @Column(name = "learning_resource_id")
+    private Integer learningResourceId;
+
+    @Column(name = "learning_resource_name")
+    private String learningResourceName;
+
+    @Column(name = "cost_price")
+    private Double costPrice;
+
+    @Column(name = "selling_price")
+    private Double sellingPrice;
+
+    @Column(name = "learning_resource_status")
+    @Enumerated(EnumType.STRING)
     private LearningResourcesStatus learningResourcesStatus;
-    private LocalDate created_date;
-    private LocalDate published_date;
-    private LocalDate retired_date;
 
-    public LearningResource(){
+    @Column(name = "created_date")
+    private LocalDate createdDate;
 
+    @Column(name = "published_date")
+    private LocalDate publishedDate;
+
+    @Column(name = "retired_date")
+    private LocalDate retiredDate;
+
+    public LearningResource() {
     }
 
-    public LearningResource(Integer id, String name, Double cost_price, Double selling_price, LearningResourcesStatus learningResourcesStatus, LocalDate created_date, LocalDate published_date, LocalDate retired_date) {
-        this.id = id;
-        this.name = name;
-        this.cost_price = cost_price;
-        this.selling_price = selling_price;
+    public LearningResource(Integer learningResourceId, String learningResourceName, Double costPrice, Double sellingPrice, LearningResourcesStatus learningResourcesStatus, LocalDate createdDate, LocalDate publishedDate, LocalDate retiredDate) {
+        this.learningResourceId = learningResourceId;
+        this.learningResourceName = learningResourceName;
+        this.costPrice = costPrice;
+        this.sellingPrice = sellingPrice;
         this.learningResourcesStatus = learningResourcesStatus;
-        this.created_date = created_date;
-        this.published_date = published_date;
-        this.retired_date = retired_date;
+        this.createdDate = createdDate;
+        this.publishedDate = publishedDate;
+        this.retiredDate = retiredDate;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getLearningResourceId() {
+        return learningResourceId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setLearningResourceId(Integer learningResourceId) {
+        this.learningResourceId = learningResourceId;
     }
 
-    public String getName() {
-        return name;
+    public String getLearningResourceName() {
+        return learningResourceName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLearningResourceNameName(String learningResourceName) {
+        this.learningResourceName = learningResourceName;
     }
 
-    public Double getCost_price() {
-        return cost_price;
+    public Double getCostPrice() {
+        return costPrice;
     }
 
-    public void setCost_price(Double cost_price) {
-        this.cost_price = cost_price;
+    public void setCostPrice(Double costPrice) {
+        this.costPrice = costPrice;
     }
 
-    public Double getSelling_price() {
-        return selling_price;
+    public Double getSellingPrice() {
+        return sellingPrice;
     }
 
-    public void setSelling_price(Double selling_price) {
-        this.selling_price = selling_price;
+    public void setSellingPrice(Double sellingPrice) {
+        this.sellingPrice = sellingPrice;
     }
 
-    public LearningResourcesStatus getLearningResourcesStatus() {
+    public LearningResourcesStatus getLearningResourceStatus() {
         return learningResourcesStatus;
     }
 
-    public void setLearningResourcesStatus(LearningResourcesStatus learningResourcesStatus) {
+    public void setLearningResourceStatus(LearningResourcesStatus learningResourcesStatus) {
         this.learningResourcesStatus = learningResourcesStatus;
     }
 
-    public LocalDate getCreated_date() {
-        return created_date;
+    public LocalDate getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreated_date(LocalDate created_date) {
-        this.created_date = created_date;
+    public void setCreatedDate(LocalDate createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public LocalDate getPublished_date() {
-        return published_date;
+    public LocalDate getPublishedDate() {
+        return publishedDate;
     }
 
-    public void setPublished_date(LocalDate published_date) {
-        this.published_date = published_date;
+    public void setPublishedDate(LocalDate publishedDate) {
+        this.publishedDate = publishedDate;
     }
 
-    public LocalDate getRetired_date() {
-        return retired_date;
+    public LocalDate getRetiredDate() {
+        return retiredDate;
     }
 
-    public void setRetired_date(LocalDate retired_date) {
-        this.retired_date = retired_date;
+    public void setRetiredDate(LocalDate retiredDate) {
+        this.retiredDate = retiredDate;
+    }
+
+    @Override
+    public String toString() {
+        return "LearningResource{" +
+                "learningResourceId=" + learningResourceId +
+                ", learningResourceName='" + learningResourceName + '\'' +
+                ", costPrice=" + costPrice +
+                ", sellingPrice=" + sellingPrice +
+                ", learningResourceStatus=" + learningResourcesStatus +
+                ", createdDate=" + createdDate +
+                ", publishedDate=" + publishedDate +
+                ", retiredDate=" + retiredDate +
+                '}';
     }
 }
